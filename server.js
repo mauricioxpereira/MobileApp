@@ -1,14 +1,24 @@
-const io = require('socket.io').listen(6079); // import socket.io module and listen on port 6079
+const http = require('http');
+const server = http.createServer(function(res){
+  res.write('Hello Node')
+  res.end()  
+});
+
+const { Server } = require("socket.io");
+const io = new Server(server);
+const PORT = process.env.PORT||3000;
 
 io.on('connection', (socket) => {
-    console.info('connection established');
+  console.log('Client connected.');
 
-    socket.on('msg', (msg) => {
-        console.log(msg);
+  socket.on('msg', (msg) => {
+    console.log(msg);
         // do something with the message
-    });
+  });
 
-    socket.on('disconnect', function() {
-      console.log('client disconnected');
-   });
+  socket.on('disconnect', function() {
+    console.log('Client disconnected.');
+  });  
 });
+
+server.listen(PORT, () => console.log('Server runnning on port' ,  PORT));
