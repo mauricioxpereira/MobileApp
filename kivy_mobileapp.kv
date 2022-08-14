@@ -1,0 +1,40 @@
+# this holds all graphical user interface. It is easier than writing this inside the main file
+
+MainWidget:
+
+<MainWidget>:
+	Button:
+		text:"Up"
+		pos: "200dp", "300dp"
+		size:  "50dp", "50dp"
+		#color: r, g, b, a 
+		on_press: root.on_buttonup_click()
+	Button:
+		text:"Down"
+		pos: "200dp", "100dp"
+		size:  "50dp", "50dp"
+		on_press: root.on_buttondown_click()
+	Button:
+		text:"Left"
+		pos: "100dp", "200dp"
+		size:  "50dp", "50dp"
+		on_press: root.on_buttonleft_click()
+	Button:
+		text:"Right"
+		pos: "300dp", "200dp"
+		size:  "50dp", "50dp"
+		on_press: root.on_buttonright_click()
+	Button:
+		text:"Home"
+		pos: "200dp", "200dp"
+		size:  "50dp", "50dp"
+		on_press: root.on_buttonhome_click()
+
+	Label:
+		text: root.my_text
+		size: "200dp", "200dp"
+		pos: "100dp", "400dp" 
+	Label:
+		text: root.count_text
+		size: "200dp", "200dp"
+		pos: "100dp", "450dp"
